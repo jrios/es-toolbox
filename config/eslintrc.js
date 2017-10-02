@@ -4,9 +4,21 @@ module.exports = {
     node: true
   },
   parserOptions: {
-    ecmaVersion: 7
+    ecmaVersion: 7,
+    ecmaFeatures: {
+      "jsx": true
+    },
+    sourceType: "module"
   },
-  extends: "eslint:recommended",
+  plugins: [
+    "react",
+    "jsx-a11y"
+  ],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
   rules: {
     eqeqeq: 1
   }
