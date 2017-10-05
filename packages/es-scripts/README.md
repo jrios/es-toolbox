@@ -29,12 +29,22 @@ In your `package.json` file, `es-scripts` can be invoked in the `scripts` sectio
 
 This script invokes the jest test runner using mostly defaults. Use `es-scripts test --watch` to invoke the test runner in `watch` mode. Including options in the "jest" section within the `package.json` allows those options to be merged with the default options that are included in this package.
 
+#### Options
+
+`--watch` - run Jest in watch mode
+
+`--cover` - run Jest with a coverage reporter
+
+`--report` - run Jest with the jest-teamcity-reporter
+
 ### `lint`
 
 This script invokes [eslint](https://eslint.org). ESLint is configured to use the recommended rules from the following packages:
 
 [eslint:recommended](https://eslint.org/docs/user-guide/configuring#using-eslintrecommended)
+
 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react#recommended)
+
 [es-lint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y#difference-between-recommended-and-strict-mode)
 
 ### `format`
