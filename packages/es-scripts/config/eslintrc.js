@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true
   },
+  parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 7,
     ecmaFeatures: {
@@ -21,5 +22,14 @@ module.exports = {
   ],
   rules: {
     eqeqeq: 1
-  }
+  },
+  overrides: [
+    {
+      files: ["*.spec.js", "*.specs.js", "*-spec.js", "*-specs.js"],
+      plugins: ["jest"],
+      env: {
+        "jest/globals": true
+      }
+    }
+  ]
 };
