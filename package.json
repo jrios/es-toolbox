@@ -4,6 +4,9 @@
   "description": "A CLI toolbox for managing frontend React applications",
   "author": "Exchange Solutions",
   "license": "MIT",
+  "scripts": {
+    "publish": "lerna publish"
+  },
   "devDependencies": {
     "lerna": "^2.2.0"
   }

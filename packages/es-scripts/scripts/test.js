@@ -1,14 +1,21 @@
 const path = require('path');
-const watch = process.argv.slice(2).includes('--watch') ? '--watch' : '';
-const pkgJson = path.join(process.cwd(), 'package.json');
+const args = require('minimist')(process.argv.slice(2));
 
-const knownConfig = require('../config/jest-config');
+let config = require('../config/jest-config');
+const pkgJson = path.join(process.cwd(), 'package.json');
 const possibleConfigOptions = require(pkgJson);
 
+const hasArg = argument => args[argument] !== undefined;
+
+config = hasArg('report') ? Object.assign({}, config, { testResultsProcessor: "jest-teamcity-reporter" }) : config;
+config = hasArg('cover') ? Object.assign({}, config, { collectCoverage: true }) : config;
+
 const jestConfig = possibleConfigOptions.jest !== undefined ?
-               Object.assign({}, knownConfig, possibleConfigOptions.jest) :
-               knownConfig;
+                   Object.assign({}, config, possibleConfigOptions.jest) :
+                   config;
 
-const config = ['--config', JSON.stringify(jestConfig)];
+const configArguments = ['--config', JSON.stringify(jestConfig)];
 
-require('jest').run([watch, ...config]);
+const watch = hasArg('watch') ? '--watch' : '';
+
+require('jest').run([watch, ...configArguments]);
