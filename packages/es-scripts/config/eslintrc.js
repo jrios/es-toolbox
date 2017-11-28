@@ -25,7 +25,16 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.spec.js", "*.specs.js", "*-spec.js", "*-specs.js"],
+      files: [
+        "*.spec.js",
+        "*.specs.js",
+        "*-spec.js",
+        "*-specs.js",
+        "*.tests.js",
+        "*.test.js",
+        "*-test.js",
+        "*-tests.js"
+      ],
       plugins: ["jest"],
       env: {
         "jest/globals": true
