@@ -1,6 +1,6 @@
 {
   "name": "es-scripts",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A toolbox of common scripts for managing frontend projects",
   "bin": {
     "es-scripts": "bin/es-scripts.js"
